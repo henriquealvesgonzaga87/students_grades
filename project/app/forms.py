@@ -10,5 +10,23 @@ class StudentForm(forms.ModelForm):
 
 class GradeForm(forms.ModelForm):
     class Meta:
-        model = Grades
-        fields = ['Student', '1st Grade', '2nd Grade', '3rd Grade']
+        model = FirstQuarter
+        fields = ['Student', 'Math', 'Natural Science', 'Human Science']
+
+
+class GradeForm2(forms.ModelForm):
+    class Meta:
+        model = SecondQuarter
+        fields = ['Student', 'Math', 'Natural Science', 'Human Science']
+
+
+class GradeForm3(forms.ModelForm):
+    class Meta:
+        model = ThirdQuarter
+        fields = ['Student', 'Math', 'Natural Science', 'Human Science']
+
+
+class AverageForm(forms.ModelForm):
+    class Meta:
+        model = AverageGrades
+        fields = ['Student', 'Math', 'Natural Science', 'Human Science']

@@ -50,8 +50,12 @@ class AverageGrades(models.Model):
     id = models.SmallAutoField(primary_key=True)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     a_math = models.FloatField('Average Math', Avg(FirstQuarter.g_math, SecondQuarter.g_math, ThirdQuarter.g_math))
-    a_natural_sciences = models.FloatField('Average Natural Sciences')
-    a_human_sciences = models.FloatField('Average Human Sciences')
+    a_natural_sciences = models.FloatField('Average Natural Sciences', Avg(FirstQuarter.g_natural_sciences,
+                                                                           SecondQuarter.g_natural_sciences,
+                                                                           ThirdQuarter.g_natural_sciences))
+    a_human_sciences = models.FloatField('Average Human Sciences', Avg(FirstQuarter.g_human_sciences,
+                                                                       SecondQuarter.g_human_sciences,
+                                                                       ThirdQuarter.g_human_sciences))
 
     def __str__(self):
         return f"Student: {self.student}, Average Math: {self.a_math}, Average Natual Science: {self.a_natural_sciences}" \
